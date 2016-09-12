@@ -1,4 +1,4 @@
-lib/
-build/
-exec/*.exe
-exec/*.msi
+/lib/
+/build/
+/exec/*.exe
+/exec/*.msi
