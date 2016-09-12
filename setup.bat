@@ -9,8 +9,11 @@ if %errorLevel% NEQ 0 (
 )
 
 SET URHO3D_HOME=%pXYZ_ROOT%\libsrc\URHO3D-1.6
+SET PATH=%PATH%;%pXYZ_ROOT%\lib\mingw-w64\i686-6.2.0-posix-dwarf-rt_v5-rev0\mingw32\bin
 
-powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('%pXYZ_ROOT%\libsrc\URHO3D-1.6.zip', '%pXYZ_ROOT%\libsrc'); }"
+if not exist "%pXYZ_ROOT%\libsrc\URHO3D-1.6" (
+    powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('%pXYZ_ROOT%\libsrc\URHO3D-1.6.zip', '%pXYZ_ROOT%\libsrc'); }"
+)
 
 if exist "%pXYZ_ROOT%\build\vs_lib" (
     echo vs_lib build folder already exists. If the previous build failed then please remove the folder to try again.

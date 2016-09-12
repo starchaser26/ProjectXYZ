@@ -1,4 +1,5 @@
 /lib/
+/libsrc/Urho3D-1.6/
 /build/
 /exec/*.exe
 /exec/*.msi
