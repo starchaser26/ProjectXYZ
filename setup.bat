@@ -8,6 +8,8 @@ if %errorLevel% NEQ 0 (
     exit /B 1
 )
 
+SET URHO3D_HOME=%pXYZ_ROOT%\libsrc\URHO3D-1.6
+
 if exist "%pXYZ_ROOT%\build\vs_lib" (
     echo vs_lib build folder already exists. If the previous build failed then please remove the folder to try again.
     GOTO VSBUILD
@@ -21,7 +23,7 @@ if exist "%pXYZ_ROOT%\build\vs_lib\lib" (
     GOTO EMSCRIPTEN
 )
 echo Starting native library build...
-"%VS140COMNTOOLS%vsdevcmd"
+CALL "%VS140COMNTOOLS%vsdevcmd"
 msbuild "%pXYZ_ROOT%\build\vs_lib\urho3d.sln"
 
 :EMSCRIPTEN
